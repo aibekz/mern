@@ -11,7 +11,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
       <div className="qty" style={{ justifyContent: isPaid && 'center' }}>
         {!isPaid &&
           <button
-            className="btn-xs"
+            className="btn-sm"
             // Refactor
             onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
           >−</button>
@@ -19,7 +19,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
         <span>{lineItem.qty}</span>
         {!isPaid &&
           <button
-            className="btn-xs"
+            className="btn-sm"
             // Refactor
             onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}
           >+</button>

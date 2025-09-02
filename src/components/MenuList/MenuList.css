@@ -4,5 +4,7 @@
   border-radius: 2vmin;
   margin: 3vmin 0;
   padding: 3vmin;
-  overflow-y: scroll;
+  max-height: calc(100vh - 6vmin);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }

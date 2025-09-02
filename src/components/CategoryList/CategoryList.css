@@ -7,7 +7,7 @@
 
 .CategoryList li {
   padding: .6vmin;
-  text-align: center;
+  text-align: left;
   border-radius: .5vmin;
   margin-bottom: .5vmin;
 }

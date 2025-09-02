@@ -1,10 +1,10 @@
 .NewOrderPage {
-  height: 100%;
+  /* ensure the page fills the viewport so child max-heights can be computed reliably */
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1.6fr 3.5fr 3fr;
   grid-template-rows: 1fr;
   background-color: var(--white);
-  border-radius: 2vmin;
 }
 
 .NewOrderPage aside {

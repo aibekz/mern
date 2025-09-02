@@ -7,5 +7,7 @@
   border-radius: 2vmin;
   margin: 3vmin 0;
   padding: 3vmin;
-  overflow-y: scroll;
+  /* keep the list from growing the page; allow internal scrolling for many past orders */
+  overflow-y: auto;
+  max-height: calc(100vh - 6vmin);
 }

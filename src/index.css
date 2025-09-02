@@ -22,7 +22,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-4);
-  padding: 2vmin;
   height: 100vh;
 }
 
@@ -44,7 +43,8 @@ code {
 }
 
 .smaller {
-  font-size: smaller;
+  /* use relative em so it scales predictably with container font sizes */
+  font-size: 0.85em;
 }
 
 .flex-ctr-ctr {
@@ -79,6 +79,8 @@ code {
 }
 
 .form-container {
+  max-width: 550px;
+  margin: 0 auto;
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
@@ -105,7 +107,7 @@ label {
 
 input {
   padding: 1vmin;
-  font-size: 2vmin;
+  font-size: 3vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);

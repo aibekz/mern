@@ -7,8 +7,8 @@ export default function OrderListItem({ order, isSelected, setSelectedOrder }) {
       onClick={() => setSelectedOrder(order)}
     >
       <div>
+        <div className="smaller">Order Date: {new Date(order.createdAt).toLocaleDateString()}</div>
         <div>Order Id: <span className="smaller">{order.orderId}</span></div>
-        <div className="smaller">{new Date(order.createdAt).toLocaleDateString()}</div>
       </div>
       <div className="align-rt">
         <div>${order.orderTotal.toFixed(2)}</div>
