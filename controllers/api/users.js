@@ -12,7 +12,8 @@ async function create(req, res) {
   try {
     // Add the user to the db
     const user = await User.create(req.body);
-    const token = createJWT(user);
+  // Only include minimal fields in the token payload to avoid embedding sensitive mongoose internals
+  const token = createJWT({ _id: user._id, name: user.name, email: user.email });
     res.json(token);
   } catch (err) {
     res.status(400).json(err);
@@ -25,7 +26,7 @@ async function login(req, res) {
     if (!user) throw new Error();
     const match = await bcrypt.compare(req.body.password, user.password);
     if (!match) throw new Error();
-    const token = createJWT(user);
+  const token = createJWT({ _id: user._id, name: user.name, email: user.email });
     res.json(token);
   } catch (err) {
     res.status(400).json('Bad Credentials');
@@ -33,7 +34,6 @@ async function login(req, res) {
 }
 
 function checkToken(req, res) {
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 
@@ -42,8 +42,8 @@ function checkToken(req, res) {
 function createJWT(user) {
   return jwt.sign(
     // data payload
-    { user },
-    process.env.SECRET,
+  { user },
+  process.env.SECRET,
     { expiresIn: '24h' }
   );
 }
